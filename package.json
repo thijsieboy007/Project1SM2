@@ -1,0 +1,23 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "Project",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thijsieboy007/Project1SM2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thijsieboy007/Project1SM2/issues"
+  },
+  "homepage": "https://github.com/thijsieboy007/Project1SM2#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
