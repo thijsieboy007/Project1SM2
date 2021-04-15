@@ -9,20 +9,23 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@1&display=swap" rel="stylesheet">
     <title>Hello, world!</title>
 </head>
 
 <body>
     <main class="container-fluid">
 
-        <div class="header">
-        </div>
 
         <header>
             <?php
             include("./pages/navbar.php");
             ?>
         </header>
+
+        <div class="header">
+        </div>
 
         <!-- Content -->
         <div class="row" id="content">
