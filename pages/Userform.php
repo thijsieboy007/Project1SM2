@@ -1,7 +1,3 @@
-<?php
-include("./connect_db.php");
-?>
-
 <div class="row">
     <div class="col-2"></div>
     <div class="col-4">
