@@ -6,12 +6,14 @@
         <tr>
           <th scope="col">Productname</th>
           <th scope="col">Productprice</th>
+          <th scope="col">Amount</th>
           <th scope="col">Image</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row"></th>
+          <td></td>
           <td></td>
           <td></td>
         </tr>

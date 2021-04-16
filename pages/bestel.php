@@ -118,8 +118,9 @@
                                     <li class="list-group-item"><b>Prijs</b> €<?php echo $row["Price"]; ?></li>
                                     <li class="list-group-item"><b>Allergie</b> <?php echo $row["allergieInfo"]; ?></li>
                                 </ul>
+                                <input name="ProductID" type="hidden" value="<?php echo  $row["ID"]; ?>" />
                                 <input name="ProductName" type="hidden" value="<?php echo  $row["Name"]; ?>" />
-                                <input name="_amount" type="hidden" value="2" />
+                                <input name="ProductPrice" type="hidden" value="<?php echo  $row["Price"]; ?>" />
                                 <button class="add-button btn btn-primary" type="submit">Add</button>
                             </div>
                         </form>
