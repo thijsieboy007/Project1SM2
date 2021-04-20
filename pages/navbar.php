@@ -6,7 +6,7 @@
             </div>
         </div>
         <ul>
-            <li><a href="index.php?content=Userform">Bestellen</a></li>
+            <li><a href="index.php?content=bestel">Bestellen</a></li>
             <li><a href="index.php?content=bestel">Contact</a></li>
             <li><a href="#">Log in</a></li>
             <li><a href="#">Register</a>

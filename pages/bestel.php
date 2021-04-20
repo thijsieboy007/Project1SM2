@@ -29,17 +29,22 @@
 
                 <div class="col-4">
                     <div class="card my-4">
-                        <td> <?php echo '<img src="./img/' . $row['img'] . '" alt="image" id="foodimg">'; ?> </td>
-                        <div class="card-body">
-                            <h5 class="card-title"><b><?php echo  $row["Name"]; ?></b></h5>
-                            <p class="card-text" style="min-height:4rem;"><?php echo  $row["Description"]; ?></p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>Aantal</b> <?php echo $row["Availability"]; ?></li>
-                                <li class="list-group-item"><b>Prijs</b> €<?php echo $row["Price"]; ?></li>
-                                <li class="list-group-item"><b>Allergie</b> <?php echo $row["allergieInfo"]; ?></li>
-                            </ul>
-                            <button type="submit" class="btn btn-primary">Add</button>
-                        </div>
+                        <form action="./index.php?content=bestel_script" method="post">
+                            <td> <?php echo '<img src="./img/' . $row['img'] . '" alt="image" id="foodimg">'; ?> </td>
+                            <div class="card-body">
+                                <h5 class="card-title"><b><?php echo  $row["Name"]; ?></b></h5>
+                                <p class="card-text" style="min-height:4rem;"><?php echo  $row["Description"]; ?></p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Aantal</b> <?php echo $row["Availability"]; ?></li>
+                                    <li class="list-group-item"><b>Prijs</b> €<?php echo $row["Price"]; ?></li>
+                                    <li class="list-group-item"><b>Allergie</b> <?php echo $row["allergieInfo"]; ?></li>
+                                </ul>
+                                <input name="ProductID" type="hidden" value="<?php echo  $row["ID"]; ?>" />
+                                <input name="ProductName" type="hidden" value="<?php echo  $row["Name"]; ?>" />
+                                <input name="ProductPrice" type="hidden" value="<?php echo  $row["Price"]; ?>" />
+                                <button class="add-button btn btn-dark" type="submit">Add</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -69,16 +74,22 @@
 
                 <div class="col-4">
                     <div class="card my-4">
-                        <td> <?php echo '<img src="./img/' . $row['img'] . '" alt="image" id="foodimg">'; ?> </td>
-                        <div class="card-body">
-                            <h5 class="card-title"><b><?php echo  $row["Name"]; ?></b></h5>
-                            <p class="card-text" style="min-height:4rem;"><?php echo  $row["Description"]; ?></p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>Aantal</b> <?php echo $row["Availability"]; ?></li>
-                                <li class="list-group-item"><b>Prijs</b> €<?php echo $row["Price"]; ?></li>
-                                <li class="list-group-item"><b>Allergie</b> <?php echo $row["allergieInfo"]; ?></li>
-                            </ul>
-                        </div>
+                        <form action="./index.php?content=bestel_script" method="post">
+                            <td> <?php echo '<img src="./img/' . $row['img'] . '" alt="image" id="foodimg">'; ?> </td>
+                            <div class="card-body">
+                                <h5 class="card-title"><b><?php echo  $row["Name"]; ?></b></h5>
+                                <p class="card-text" style="min-height:4rem;"><?php echo  $row["Description"]; ?></p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Aantal</b> <?php echo $row["Availability"]; ?></li>
+                                    <li class="list-group-item"><b>Prijs</b> €<?php echo $row["Price"]; ?></li>
+                                    <li class="list-group-item"><b>Allergie</b> <?php echo $row["allergieInfo"]; ?></li>
+                                </ul>
+                                <input name="ProductID" type="hidden" value="<?php echo  $row["ID"]; ?>" />
+                                <input name="ProductName" type="hidden" value="<?php echo  $row["Name"]; ?>" />
+                                <input name="ProductPrice" type="hidden" value="<?php echo  $row["Price"]; ?>" />
+                                <button class="add-button btn btn-dark" type="submit">Add</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
     <?php
@@ -121,17 +132,24 @@
                                 <input name="ProductID" type="hidden" value="<?php echo  $row["ID"]; ?>" />
                                 <input name="ProductName" type="hidden" value="<?php echo  $row["Name"]; ?>" />
                                 <input name="ProductPrice" type="hidden" value="<?php echo  $row["Price"]; ?>" />
-                                <button class="add-button btn btn-primary" type="submit">Add</button>
+                                <button class="add-button btn btn-dark" type="submit">Add</button>
                             </div>
                         </form>
                     </div>
                 </div>
+
     <?php
             }
         }
         echo '</div>';
     }
     ?>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <a class="btn btn-dark continue" href="index.php?content=bestelwagen" role="button">Continue order</a>
+        </div>
+    </div>
 
 
     </div>
