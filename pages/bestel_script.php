@@ -1,9 +1,7 @@
 <?php
 include("./pages/db_connect.php");
 include("./pages/functions.php");
-var_dump($_POST);
-
-session_start();
+// var_dump($_POST);
 
 $ProductID = sanitize($_POST["ProductID"]);
 
@@ -20,6 +18,13 @@ if (!isset($_SESSION["CustomerID"])) {
             $_SESSION['OrderID'] = mysqli_insert_id($conn);
             // echo "Dit is een customerID" . $_SESSION["CustomerID"];
             // echo "Dit is een OrderID" . $_SESSION["OrderID"];
+            $sql = "INSERT INTO `orderitem` (`ID`, `ProductID`, `OrderID`, `Aantal`) VALUES (NULL, '" . $ProductID . "', '" . $_SESSION["OrderID"] . "', '1');";
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                $_SESSION['ItemID'] = mysqli_insert_id($conn);
+                header("Refresh:0; url=./index.php?content=bestel");               
+            }
+            
         }
     }
 } else {

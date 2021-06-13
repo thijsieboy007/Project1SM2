@@ -2,8 +2,6 @@
   include("./pages/db_connect.php");
   include("./pages/functions.php");
 
-  session_start();
-
   $firstname = sanitize($_POST["first"]);
   $infix = sanitize($_POST["infix"]);      
   $lastname = sanitize($_POST["lastname"]);

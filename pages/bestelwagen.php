@@ -3,12 +3,6 @@
 include("./pages/db_connect.php");
 include("./pages/functions.php");
 
-session_start();
-
-// $sql = "SELECT product.Name as name, product.Price as price, orderitem.Aantal as amount, product.img as image, order.ID as orderid, 
-//                order.CustomerID as customerid
-//         FROM product, orderitem, order
-//         WHERE orderid = {$_SESSION["OrderID"]} AND customerid = {$_SESSION["CustomerID"]}";
 $sql = "SELECT
           p.img AS image,
           p.Name AS name, 
@@ -26,8 +20,51 @@ while ($sqlArr = mysqli_fetch_assoc($result)) {
                 <td> " . $sqlArr["name"] . "</td>
                 <td> €" . $sqlArr["price"] . "</td>
                 <td> " . $sqlArr["amount"] . "</td>
-                <td> " . $sqlArr["image"] . "</td>
               </tr>";
+}
+
+// $sql1 = "SELECT orderitem.sum(price) as total 
+//          FROM product, order, orderitem
+//          Where orderid = {$_SESSION["OrderID"]}"
+
+// $sql1 = "SELECT order.id, SUM(product.price) as total 
+//          FROM product, order, orderitem
+//          WHERE orderitem.OrderID = {$_SESSION["OrderID"]}
+//          GROUP BY order.id";
+//          var_dump($sql1);
+
+// $sql1 = "SELECT `order`.`ID`, SUM(`product`.`Price`) as total 
+//           FROM `product`, `order`, `orderitem`
+//           WHERE `orderitem`.`OrderID` = {$_SESSION["OrderID"]}
+//           GROUP BY `order`.`ID`";
+
+$sql1 = "SELECT `order`.`ID`, SUM(`product`.`Price`) as total 
+         FROM `product`, `order`, `orderitem` 
+         WHERE `orderitem`.`OrderID` = `order`.`ID` 
+         AND `orderitem`.`ProductID` = `product`.`ID` 
+         AND `order`.`ID`= {$_SESSION["OrderID"]} 
+         GROUP BY `order`.`ID`";
+
+
+$result = mysqli_query($conn, $sql1);
+$record = mysqli_fetch_assoc($result);
+
+$tableStr1 = $record["total"];
+// var_dump(mysqli_fetch_assoc($result));echo $_SESSION["OrderID"]; exit();
+// while ($sqlArr1 = mysqli_fetch_assoc($result)) {
+// var_dump(mysqli_fetch_assoc($result));
+
+  // $tableStr1 .= "<tr>
+  //                <td> " . $sqlArr1["total"] . "</td>
+  //                </tr>";
+
+if ($result) {
+
+  while ($record = mysqli_fetch_assoc($result)) {
+    var_dump($record);
+  }
+} else {
+  echo "Niet gelukt";
 }
 
 ?>
@@ -41,13 +78,27 @@ while ($sqlArr = mysqli_fetch_assoc($result)) {
           <th scope="col">Productname</th>
           <th scope="col">Productprice</th>
           <th scope="col">Amount</th>
-          <th scope="col">Image</th>
+          <!-- <th scope="col">Image</th> -->
         </tr>
       </thead>
       <tbody>
         <tr>
           <?php
           echo $tableStr;
+          ?>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <?php
+          echo $tableStr1;
           ?>
         </tr>
       </tbody>
